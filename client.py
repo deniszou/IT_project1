@@ -12,10 +12,11 @@ def connectTs(host):
         print('socket open error: {} \n'.format(err))
     tsListenPort = int(sys.argv[3])
     port = tsListenPort
-    localhost_addr = socket.gethostbyname(socket.gethostname())
+    localhost_addr = socket.gethostbyname(host)
 
     # connect to the server on local machine
     server_binding = (localhost_addr, port)
+    print(localhost_addr)
     tcs.connect(server_binding)
     return tcs
 
@@ -67,6 +68,7 @@ def client():
             host = d.split(' ')
             # send to TS
             if connectTS == 0:
+                print(host[0])
                 connectTS = connectTs(host[0])
 
             connectTS.send(line.strip("\n").encode('utf-8'))
