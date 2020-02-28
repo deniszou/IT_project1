@@ -54,6 +54,7 @@ def server():
 
         # Close the server socket
         if hostname is "end":
+            print("end")
             ss.close()
             exit()
 

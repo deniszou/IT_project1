@@ -22,6 +22,7 @@ def connectTs(host):
 
 
 def client():
+    rsHost = sys.argv[1]
     try:
         rcs = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         print("[C]: Client socket created")
@@ -31,14 +32,13 @@ def client():
     # Define the port on which you want to connect to the server
     rsListenPort = int(sys.argv[2])
     port = rsListenPort
-    localhost_addr = socket.gethostbyname(socket.gethostname())
+    localhost_addr = socket.gethostbyname(rsHost)
 
     # connect to the server on local machine
     server_binding = (localhost_addr, port)
     rcs.connect(server_binding)
 
-    hostlist = sys.argv[1]
-    with open(hostlist) as f:
+    with open("PROJI-HNS.txt") as f:
         lines = f.readlines()
 
     #print(lines)
