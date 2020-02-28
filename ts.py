@@ -50,12 +50,12 @@ def server():
         readFile()
 
         # Close the server socket
-        if hostname is "end":
+        if hostname == "end":
             ss.close()
             exit()
 
         if dict1.get(hostname, "dne") == "dne":
-            msg = "Hostname - Error:HOST NOT FOUND\n"
+            msg = hostname + " - Error:HOST NOT FOUND\n"
         else:
             msg = dict1.get(hostname, "dne")
 

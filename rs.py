@@ -53,7 +53,7 @@ def server():
         readFile()
 
         # Close the server socket
-        if hostname is "end":
+        if hostname == "end":
             print("end")
             ss.close()
             exit()
